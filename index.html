@@ -200,9 +200,10 @@
   }
   .proj-card:hover{border-color:rgba(47,224,208,0.4); transform:translateY(-4px); background:var(--card-hover);}
   .proj-icon{
-    width:42px; height:42px; border-radius:10px; background:rgba(68,99,255,0.12);
-    display:flex; align-items:center; justify-content:center; margin-bottom:18px; font-size:19px;
+    width:40px; height:40px; border-radius:10px; border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--cyan);
   }
+  .proj-icon svg{width:19px; height:19px;}
   .proj-card h4{font-size:16.5px; margin-bottom:10px;}
   .proj-card p{font-size:14px; color:var(--text-dim); margin-bottom:16px;}
   .tags{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
@@ -239,23 +240,20 @@
   }
 
   /* CONTACT */
-  .contact-card{
-    background:linear-gradient(135deg, rgba(68,99,255,0.08), rgba(47,224,208,0.04));
-    border:1px solid var(--line-strong); border-radius:20px; padding:56px;
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
-  }
-  .contact-card h2{font-size:clamp(26px,3.6vw,34px); margin-bottom:14px;}
-  .contact-card p{color:var(--text-dim); font-size:15px; margin-bottom:0;}
-  .contact-list{display:flex; flex-direction:column; gap:14px;}
+  .contact-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
+  .contact-grid h2{font-size:clamp(28px, 4vw, 38px); margin-bottom:12px;}
+  .contact-grid > div:first-child p{color:var(--text-dim); font-size:15.5px; max-width:420px;}
+  .contact-list{display:flex; flex-direction:column; gap:12px;}
   .contact-item{
-    display:flex; align-items:center; gap:14px; padding:14px 16px; background:rgba(0,0,0,0.25);
+    display:flex; align-items:center; gap:14px; padding:16px 18px;
     border:1px solid var(--line); border-radius:12px; font-size:14.5px; transition:.2s;
   }
-  .contact-item:hover{border-color:var(--cyan);}
+  .contact-item:hover{border-color:var(--cyan); background:rgba(255,255,255,0.02);}
   .contact-item .ico{
-    width:34px; height:34px; border-radius:8px; background:rgba(47,224,208,0.12);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:15px;
+    width:36px; height:36px; border-radius:8px; border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cyan);
   }
+  .contact-item .ico svg{width:16px; height:16px;}
   .contact-item div{display:flex; flex-direction:column;}
   .contact-item div span:first-child{font-size:11px; color:var(--text-dimmer); text-transform:uppercase; letter-spacing:.06em;}
 
@@ -293,7 +291,7 @@
     .about-grid{gap:36px;}
     .about-photo{max-width:280px;}
     .proj-grid{grid-template-columns:1fr;}
-    .contact-card{grid-template-columns:1fr; padding:34px 26px;}
+    .contact-grid{grid-template-columns:1fr; gap:32px;}
     #inicio{padding-top:130px;}
     .orbit-wrap{max-width:260px; margin-top:20px;}
     .footer-grid{grid-template-columns:1fr; gap:30px;}
@@ -372,12 +370,13 @@
         <div class="reveal about-text">
           <div class="eyebrow" data-i18n="about.eyebrow">Sobre mí</div>
           <h2 style="font-size:clamp(26px,3.6vw,34px); margin-bottom:20px;" data-i18n="about.h2">El dato y el deporte, desde dentro</h2>
-          <p data-i18n="about.p1">Curso 3.º del <strong>Grado en Ciencia de Datos</strong> en la Universitat Politècnica de València, donde combino estadística, machine learning y visualización con gestión de bases de datos relacionales y NoSQL.</p>
+          <p data-i18n="about.p1">Curso 3.º del <strong>Grado en Ciencia de Datos</strong> en la Universitat Politècnica de València, y complemento mi formación con el <strong>Máster en Digitalización, Innovación y Tecnología en el Deporte</strong>, especializándome en cómo la tecnología transforma el ecosistema deportivo.</p>
           <p data-i18n="about.p2">En paralelo, llevo años dentro del ciclismo profesional: como <strong>fisioterapeuta deportivo de la Selección Española de Ciclismo</strong>, staff técnico en un equipo internacional en Filipinas, y <strong>director deportivo (Nivel II RFEC)</strong> formando a jóvenes corredores. También compito como ciclista de pista federado.</p>
           <p data-i18n="about.p3">Ese doble perfil es mi ventaja: entiendo de dónde vienen los datos deportivos porque los he vivido desde la carretera, el masaje pre-carrera y la sala de fichas de un equipo — no solo desde una pantalla. Motivado, rápido aprendiendo y acostumbrado a trabajar bajo presión en entornos internacionales.</p>
           <div class="facts">
             <div class="fact"><span data-i18n="about.fact1.label">Ubicación</span><b>Benidorm · Valencia</b></div>
             <div class="fact"><span data-i18n="about.fact2.label">Formación</span><b data-i18n="about.fact2.value">Grado en Ciencia de Datos, UPV</b></div>
+            <div class="fact"><span data-i18n="about.fact-spec.label">Especialización</span><b data-i18n="about.fact-spec.value">Innovación y Tecnología en el Deporte</b></div>
             <div class="fact"><span data-i18n="about.fact3.label">Idiomas</span><b>ES · Valencià · EN (B1)</b></div>
             <div class="fact"><span>GitHub</span><b>github.com/Marioam200</b></div>
           </div>
@@ -484,21 +483,21 @@
       </div>
       <div class="proj-grid">
         <div class="proj-card reveal">
-          <div class="proj-icon">📊</div>
+          <div class="proj-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></div>
           <h4 data-i18n="proj1.title">Analítica de rendimiento ciclista</h4>
           <p data-i18n="proj1.desc">Análisis y visualización de datos de entrenamiento y competición para extraer patrones de rendimiento.</p>
           <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">ML</span></div>
           <a href="https://github.com/Marioam200" target="_blank" class="proj-link" data-i18n="proj.link">Ver en GitHub →</a>
         </div>
         <div class="proj-card reveal">
-          <div class="proj-icon">🗄️</div>
+          <div class="proj-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
           <h4 data-i18n="proj2.title">Gestión de datos de deportistas</h4>
           <p data-i18n="proj2.desc">Diseño de bases de datos relacionales y NoSQL para el seguimiento y organización de fichas de deportistas.</p>
           <div class="tags"><span class="tag">SQL</span><span class="tag">Cassandra</span><span class="tag">NoSQL</span></div>
           <a href="https://github.com/Marioam200" target="_blank" class="proj-link" data-i18n="proj.link">Ver en GitHub →</a>
         </div>
         <div class="proj-card reveal">
-          <div class="proj-icon">📈</div>
+          <div class="proj-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
           <h4 data-i18n="proj3.title">Dashboards e informes</h4>
           <p data-i18n="proj3.desc">Cuadros de mando para comunicar KPIs deportivos y de negocio de forma clara a equipos no técnicos.</p>
           <div class="tags"><span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">Stata/SPSS</span></div>
@@ -555,17 +554,29 @@
   <!-- CONTACTO -->
   <section id="contacto">
     <div class="wrap">
-      <div class="contact-card reveal">
-        <div>
+      <div class="contact-grid">
+        <div class="reveal">
           <div class="eyebrow" data-i18n="contact.eyebrow">Contacto</div>
           <h2 data-i18n="contact.h2">¿Hablamos?</h2>
           <p data-i18n="contact.p">Abierto a prácticas, colaboraciones y proyectos donde el dato y el deporte se crucen. Respondo rápido.</p>
         </div>
-        <div class="contact-list">
-          <a class="contact-item" href="mailto:malvmar5@hotmail.com"><span class="ico">✉</span><div><span data-i18n="contact.email">Email</span>malvmar5@hotmail.com</div></a>
-          <a class="contact-item" href="tel:+34656867231"><span class="ico">📞</span><div><span data-i18n="contact.phone">Teléfono</span>+34 656 86 72 31</div></a>
-          <a class="contact-item" href="https://github.com/Marioam200" target="_blank"><span class="ico">🔗</span><div><span>GitHub</span>github.com/Marioam200</div></a>
-          <a class="contact-item" href="assets/CV_Mario_Alvarez.pdf" download><span class="ico">↓</span><div><span data-i18n="contact.doc">Documento</span><span data-i18n="contact.doc.val">Descargar CV completo</span></div></a>
+        <div class="contact-list reveal">
+          <a class="contact-item" href="mailto:malvmar5@hotmail.com">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></span>
+            <div><span data-i18n="contact.email">Email</span>malvmar5@hotmail.com</div>
+          </a>
+          <a class="contact-item" href="tel:+34656867231">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2.2 2A17 17 0 0 1 2 5.2 2 2 0 0 1 4 4Z"/></svg></span>
+            <div><span data-i18n="contact.phone">Teléfono</span>+34 656 86 72 31</div>
+          </a>
+          <a class="contact-item" href="https://github.com/Marioam200" target="_blank">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55 0-.27-.01-1.15-.02-2.09-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg></span>
+            <div><span>GitHub</span>github.com/Marioam200</div>
+          </a>
+          <a class="contact-item" href="assets/CV_Mario_Alvarez.pdf" download>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg></span>
+            <div><span data-i18n="contact.doc">Documento</span><span data-i18n="contact.doc.val">Descargar CV completo</span></div>
+          </a>
         </div>
       </div>
     </div>
@@ -661,10 +672,11 @@
       "hero.stat2.label": "Años en ciclismo de élite",
       "hero.stat3.label": "Países en competición internacional",
       "about.eyebrow": "Sobre mí", "about.h2": "El dato y el deporte, desde dentro",
-      "about.p1": "Curso 3.º del <strong>Grado en Ciencia de Datos</strong> en la Universitat Politècnica de València, donde combino estadística, machine learning y visualización con gestión de bases de datos relacionales y NoSQL.",
+      "about.p1": "Curso 3.º del <strong>Grado en Ciencia de Datos</strong> en la Universitat Politècnica de València, y complemento mi formación con el <strong>Máster en Digitalización, Innovación y Tecnología en el Deporte</strong>, especializándome en cómo la tecnología transforma el ecosistema deportivo.",
       "about.p2": "En paralelo, llevo años dentro del ciclismo profesional: como <strong>fisioterapeuta deportivo de la Selección Española de Ciclismo</strong>, staff técnico en un equipo internacional en Filipinas, y <strong>director deportivo (Nivel II RFEC)</strong> formando a jóvenes corredores. También compito como ciclista de pista federado.",
       "about.p3": "Ese doble perfil es mi ventaja: entiendo de dónde vienen los datos deportivos porque los he vivido desde la carretera, el masaje pre-carrera y la sala de fichas de un equipo — no solo desde una pantalla. Motivado, rápido aprendiendo y acostumbrado a trabajar bajo presión en entornos internacionales.",
       "about.fact1.label": "Ubicación", "about.fact2.label": "Formación", "about.fact2.value": "Grado en Ciencia de Datos, UPV", "about.fact3.label": "Idiomas",
+      "about.fact-spec.label": "Especialización", "about.fact-spec.value": "Innovación y Tecnología en el Deporte",
       "journey.eyebrow": "Trayectoria", "journey.h2": "Experiencia y formación",
       "journey.p": "De la carretera a la base de datos: una trayectoria construida en equipos de alto rendimiento y, en paralelo, en el análisis de datos.",
       "journey.col.exp": "Experiencia profesional", "journey.col.edu": "Formación & certificaciones",
@@ -711,10 +723,11 @@
       "hero.stat2.label": "Years in elite cycling",
       "hero.stat3.label": "Countries in international competition",
       "about.eyebrow": "About me", "about.h2": "Data and sport, from the inside",
-      "about.p1": "3rd-year <strong>Data Science student</strong> at the Universitat Politècnica de València, combining statistics, machine learning and visualisation with relational and NoSQL database management.",
+      "about.p1": "3rd-year <strong>Data Science student</strong> at the Universitat Politècnica de València, complementing it with a <strong>Master's in Digitalisation, Innovation & Technology in Sport</strong>, specialising in how technology is transforming the sports ecosystem.",
       "about.p2": "In parallel, I've spent years inside professional cycling: as a <strong>sports masseur for the Spanish National Cycling Team</strong>, technical staff for an international team in the Philippines, and <strong>cycling sports director (RFEC Level II)</strong> coaching young riders. I also compete as a federated track cyclist.",
       "about.p3": "That dual profile is my edge: I understand where sports data comes from because I've lived it — from the road, the pre-race massage table and a team's athlete records — not just from a screen. Highly motivated, fast-learning and used to working under pressure in international environments.",
       "about.fact1.label": "Location", "about.fact2.label": "Education", "about.fact2.value": "BSc Data Science, UPV", "about.fact3.label": "Languages",
+      "about.fact-spec.label": "Specialisation", "about.fact-spec.value": "Innovation & Technology in Sport",
       "journey.eyebrow": "Journey", "journey.h2": "Experience & education",
       "journey.p": "From the road to the database: a path built in high-performance teams and, in parallel, in data analysis.",
       "journey.col.exp": "Professional experience", "journey.col.edu": "Education & certifications",
